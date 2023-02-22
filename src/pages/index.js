@@ -31,12 +31,13 @@ export default function Home() {
 
 
 export const getServerSideProps = (ctx) => {
-  const cookies = cookie.parse(ctx.req.headers.cookie || '');
-  const userCookie = cookies?.user_token;
+  // const cookies = cookie.parse(ctx.req.headers.cookie || '');
+  // const userCookie = cookies?.user_token;
   const store = getStore();
-  if(!!userCookie) {
-    store.dispatch(setAuthentication(true));
-  }
+  // if(!!userCookie) {
+  // }
+  store.dispatch(setAuthentication(true));
+
 
   return {
     props: {

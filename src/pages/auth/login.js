@@ -29,18 +29,19 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {
-      const formData = new FormData(formRef.current);
-      const { payload } = await dispatch(login(formData));
-      const { success, auth_token } = payload;
+    // try {
+    //   const formData = new FormData(formRef.current);
+    //   const { payload } = await dispatch(login(formData));
+    //   const { success, auth_token } = payload;
   
-      if(success) {
-        Cookies.set('user_token', auth_token);
-        router.push(`${process.env.linksPath}/`);
-      }
-    } catch (error) {
-      alertPopup('Something went wrong. Please try again.', 'error', 2000);
-    }
+    //   if(success) {
+    //     Cookies.set('user_token', auth_token);
+    //   }
+    // } catch (error) {
+    //   alertPopup('Something went wrong. Please try again.', 'error', 2000);
+    // }
+    router.push(`${process.env.linksPath}/`);
+
 
   }
 

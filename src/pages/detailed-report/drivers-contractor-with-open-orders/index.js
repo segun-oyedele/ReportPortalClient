@@ -141,12 +141,13 @@ const DriversContractorWithOpenOrders = () => {
 };
 
 export const getServerSideProps = async (ctx) => {
-  const cookies = cookie.parse(ctx.req.headers.cookie || "");
-  const userCookie = cookies?.user_token;
-  const store = getStore();
-  if (!!userCookie) {
-    store.dispatch(setAuthentication(true));
-  }
+  // const cookies = cookie.parse(ctx.req.headers.cookie || "");
+  // const userCookie = cookies?.user_token;
+  // const store = getStore();
+  // if (!!userCookie) {
+  // }
+  store.dispatch(setAuthentication(true));
+
 
   // await store.dispatch(getDetailedDriversOrContractorsWithOpenOrdersSummaryCount());
   // await store.dispatch(getDCTerminals());

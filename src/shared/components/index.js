@@ -5,7 +5,7 @@ export { InputEmailField } from './InputEmailField';
 export { InputReportTime } from './InputReportTime';
 export { ButtonComponent } from './ButtonComponent';
 export { PageDescription } from './PageDescription';
-export { MainLayout } from './layouts/MainLayout';
+export { MainLayout } from './Layouts/MainLayout';
 export { GoBackButton } from './GoBackButton';
 export { HomeCardItem } from './HomeCardItem';
 export { MultiSelect } from './MultiSelect';
