@@ -1,0 +1,51 @@
+{
+  "name": "project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "node server",
+    "export": "next export",
+    "lint": "next lint",
+    "test": "jest --watch",
+    "test:ci": "jest --ci"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.6.4",
+    "@heroicons/react": "^1.0.6",
+    "@reduxjs/toolkit": "^1.8.2",
+    "cookie": "^0.5.0",
+    "express": "^4.18.1",
+    "js-cookie": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "next": "^12.2.0",
+    "next-redux-wrapper": "^7.0.5",
+    "nextjs-progressbar": "^0.0.14",
+    "prop-types": "^15.8.1",
+    "react": "18.2.0",
+    "react-datepicker": "^4.8.0",
+    "react-datetime-picker": "^3.5.0",
+    "react-dom": "18.2.0",
+    "react-export-table-to-excel": "^1.0.6",
+    "react-redux": "^8.0.2",
+    "react-time-picker": "^5.0.0",
+    "sweetalert2": "^11.4.33"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.1",
+    "autoprefixer": "^10.4.7",
+    "babel-jest": "^28.1.1",
+    "eslint": "8.17.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-plugin-testing-library": "^5.5.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.3"
+  }
+}

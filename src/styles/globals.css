@@ -1,0 +1,960 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+}
+
+.raleway-m {
+  font-weight: 500;
+}
+
+.raleway-sb {
+  font-weight: 600;
+}
+
+.raleway-b {
+  font-weight: 700;
+}
+
+.raleway-eb {
+  font-weight: 800;
+}
+
+.raleway-bl {
+  font-weight: 900;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page__title {
+  color: #2C2C2C;
+}
+
+.table-item {
+  height: 55px;
+}
+
+.table-item.table__summary {
+  height: 105px;
+}
+
+.table-item.table__users {
+  height: 74px;
+}
+
+.table__users .is_admin > span,
+.table__users .is_user > span {
+  background-color: rgba(64, 146, 0, 0.1);
+  border-radius: 4px;
+  color: #409200;
+  height: 33px;
+  line-height: 33px;
+  width: 73px;
+}
+
+.table__users .is_user > span {
+  background-color: rgba(20, 0, 146, 0.1);
+  color: #140092;
+}
+
+.dropdown__group {
+  width: 170px;
+  height: 109px;
+}
+
+.table-item:nth-child(odd) {
+  background-color: #FAFAFA;
+}
+
+.header-tag {
+  height: 80px;
+}
+
+.pagination-item {
+  display: none;
+}
+
+.pagination .current-page,
+.pagination .next-page {
+  display: block;
+}
+
+.w-100vw {
+  width: 100vw;
+}
+
+
+*::-webkit-scrollbar {
+  border-radius: 5px;
+  width: 8px;
+  background: #d7d7d7;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(16, 93, 208, .5);
+  border-radius: 4px;
+}
+
+.partner-form {
+  max-height: 90vh;
+}
+
+.img-home {
+  object-fit: cover;
+}
+
+.landing {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 180px);
+}
+
+.sidebar__margin {
+  margin-left: -100vw;
+}
+
+.react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background: white;
+  border: 1px solid #a0a096;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+
+.react-calendar--doubleView {
+  width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer>* {
+  width: 50%;
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__tile--now {
+  background: #ffff76;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+  background: #006edc;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #1087ff;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+
+.react-clock {
+  display: block;
+  position: relative;
+}
+
+.react-clock,
+.react-clock *,
+.react-clock *:before,
+.react-clock *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-clock__face {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.react-clock__hand {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+}
+
+.react-clock__hand__body {
+  position: absolute;
+  background-color: black;
+  transform: translateX(-50%);
+}
+
+.react-clock__mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+}
+
+.react-clock__mark__body {
+  position: absolute;
+  background-color: black;
+  transform: translateX(-50%);
+}
+
+.react-clock__mark__number {
+  position: absolute;
+  left: -40px;
+  width: 80px;
+  text-align: center;
+}
+
+.react-clock__second-hand__body {
+  background-color: red;
+}
+
+.react-datetime-picker {
+  display: inline-flex;
+  position: relative;
+}
+
+.react-datetime-picker,
+.react-datetime-picker *,
+.react-datetime-picker *:before,
+.react-datetime-picker *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-datetime-picker--disabled {
+  background-color: #f0f0f0;
+  color: #6d6d6d;
+}
+
+.react-datetime-picker__wrapper {
+  border-radius: 8px;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 0 0.75rem;
+}
+
+.react-datetime-picker__inputGroup {
+  min-width: calc(4px + (4px * 3) + 0.54em * 6 + 0.217em * 2);
+  flex-grow: 1;
+  padding: 0 2px;
+  height: 100%;
+}
+
+.react-datetime-picker__inputGroup__divider {
+  padding: 1px 0;
+  white-space: pre;
+}
+
+.react-datetime-picker__inputGroup__input {
+  min-width: 0.54em;
+  height: calc(100% - 2px);
+  position: relative;
+  padding: 1px;
+  border: 0;
+  background: none;
+  font: inherit;
+  box-sizing: content-box;
+  -moz-appearance: textfield;
+}
+
+.react-datetime-picker__inputGroup__input::-webkit-outer-spin-button,
+.react-datetime-picker__inputGroup__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.react-datetime-picker__inputGroup__input:invalid {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.react-datetime-picker__inputGroup__input--hasLeadingZero {
+  margin-left: -0.54em;
+  padding-left: calc(1px + 0.54em);
+}
+
+.react-datetime-picker__inputGroup__amPm {
+  font: inherit;
+  -moz-appearance: menulist;
+}
+
+.react-datetime-picker__button {
+  border: 0;
+  background: transparent;
+  padding: 4px 6px;
+}
+
+.react-datetime-picker__button:enabled {
+  cursor: pointer;
+}
+
+.react-datetime-picker__button:enabled:hover .react-datetime-picker__button__icon,
+.react-datetime-picker__button:enabled:focus .react-datetime-picker__button__icon {
+  stroke: #0078d7;
+}
+
+.react-datetime-picker__button:disabled .react-datetime-picker__button__icon {
+  stroke: #6d6d6d;
+}
+
+.react-datetime-picker__button svg {
+  display: inherit;
+}
+
+.react-datetime-picker__calendar,
+.react-datetime-picker__clock {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+.react-datetime-picker__calendar--closed,
+.react-datetime-picker__clock--closed {
+  display: none;
+}
+
+.react-datetime-picker__calendar {
+  width: 350px;
+  max-width: 100vw;
+}
+
+.react-datetime-picker__calendar .react-calendar {
+  border-width: thin;
+}
+
+.react-datetime-picker__clock {
+  width: 200px;
+  height: 200px;
+  max-width: 100vw;
+  padding: 25px;
+  background-color: white;
+  border: thin solid #a0a096;
+}
+
+.primary-blue {
+  background-color: #105DD0;
+}
+
+.auth__button {
+  height: 60px;
+  line-height: 42px;
+}
+
+.primary-blue.btn-green {
+  background-color: #03AD33;
+}
+
+.detailed__report-filter .form-control::placeholder {
+  color: black;
+  font-weight: 500;
+}
+
+.detailed__report-searchbar > div > div > .search_bar {
+  height: 100%;
+}
+
+.btn_icon,
+.filter__button {
+  height: 53px;
+}
+
+.btn_icon.btn__add-email {
+  background: #EDECFF;
+  border-radius: 8px;
+  height: 24px;
+  width: 115px;
+}
+
+.btn_icon.btn__add-email:hover,
+.btn_icon.btn__add-email:active,
+.btn_icon.btn__add-email:focus {
+  opacity: .9;
+  background-color: #EDECFF;
+  box-shadow: none;
+}
+
+.btn__remove-email {
+  background: #FFEDED;
+  height: 32px!important;
+  transition: opacity .3s ease-in-out;
+}
+
+.btn__remove-email:hover,
+.btn__remove-email:focus {
+  opacity: .9;
+  background: #FFEDED!important;
+}
+
+.email_container {
+  grid-template-columns: 15fr 1fr;
+  gap: 20px;
+}
+
+.btn__remove-email > svg {
+  color: #DF0000;
+}
+
+.btn__add-email-label {
+  color: #3126AF;
+  font-size: 10px;
+}
+
+.btn__add-email-icon {
+  color: #3126AF;
+}
+
+.form__partner-switch-inactive {
+  background: #DBDBDB;
+}
+
+.form__partner-switch-active {
+  background: #105DD0;
+}
+
+.active__circle {
+  height: 15px;
+  width: 15px;
+}
+
+.partner__form-switch {
+  height: 54px;
+}
+
+.form__partner-switch-inactive .active__circle {
+  transform: translateX(2px);
+}
+
+.form__partner-switch-active .active__circle {
+  transform: translateX(15px);
+}
+
+.form_type-report,
+.form_report-time {
+  color: #949494;
+}
+
+.react-datetime-picker__clear-button__icon {
+  display: none!important;
+}
+
+.form_buttons-container {
+  grid-template-columns: repeat(2, minmax(150px, 208px));
+  margin-top: 57px;
+}
+
+.button__component {
+  height: 53px;
+  transition: all .3s ease-in-out;
+  letter-spacing: -0.04em;
+}
+
+.button__component-primary,
+.button__component-primary-default {
+  background: #105DD0;
+  border-radius: 8px;
+  transition: all .3s ease-in-out;
+  color: #FFFFFF;
+}
+
+.button__component-primary:hover {
+  opacity: .9;
+}
+
+.button__component-primary-default {
+  opacity: .7;
+}
+
+.button__component-second {
+  color: #888888;
+  font-weight: 700;
+  transition: all .3s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.button__component-second:hover {
+  border: 1px solid #888888;
+}
+
+.navbar {
+  height: 60px;
+  background-color: #DCEAFF;
+}
+
+.nav_link-inactive > span {
+  color: #292D32;
+}
+
+.home_card-report {
+  padding: 60px 32px 72px;
+  background-color: #f9f9f9;
+}
+
+.home_text {
+  font-size: 42px;
+  line-height: 51px;
+  color: #221F2F;
+}
+
+.filter_bar::before {
+  background: #DBE3EE;
+  bottom: -24px;
+  content: '';
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.search_bar {
+  background: #F9F9F9;
+  border: 0.4px solid #A1A1A1;
+  color: #808B9D;
+  border-radius: 4px;
+}
+
+.btn_filter-label {
+  letter-spacing: -0.04em;
+  color: #2C2C2C;
+}
+
+.search_bar:focus {
+  border-color: #105DD0;
+}
+
+.status {
+  background: #E9FFEA;
+  border-radius: 4px;
+  color: #00BE7C;
+  height: 33px;
+}
+
+.status.inactive {
+  background: #FFE9E9;
+  color: #BE0000;
+  width: 97px;
+}
+
+.thead-item {
+  color: #070707;
+  letter-spacing: -0.04em;
+}
+
+.nav_link-inactive {
+  color: #DBDBDB;
+}
+
+.table_text-black {
+  color: #2c2c2c;
+}
+
+.home_card-title {
+  color: #212121;
+}
+
+.home_card-description {
+  color: #747474;
+}
+
+.table__report-type {
+  background: #0063BE;
+  border-radius: 4px;
+  height: 33px;
+}
+
+.pagination_buttons > button,
+.current-pagination {
+  color: #A1A1A1;
+}
+
+.pagination_buttons > button.current-page {
+  color: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.form__input {
+  height: 54px;
+  background: #F8F8F8;
+  border: 1px solid #DBD9D9;
+  border-radius: 5px;
+}
+
+.form__label {
+  color: #111111;
+}
+
+.partner-form > h2 {
+  font-size: 32px;
+  margin-bottom: 9px;
+}
+
+.partner-form label {
+  color: #111111;
+}
+
+.signup__button {
+  color: #105DD0;
+  height: 50px;
+  line-height: 50px;
+  width: 164px;
+}
+
+.auth__sidebar-buttons .signup__button {
+  background-color: #105DD0;
+  color: #ffffff;
+  width: 100%;
+}
+
+.nav_link-active {
+  background-color: #105DD0;
+  height: 100%;
+}
+
+.nav_link-active.sidebar__link {
+  background-color: #105DD0;
+  height: 75px;
+}
+
+.main__container {
+  min-height: calc(100vh - 100px);
+}
+
+.grid__reports > a {
+  height: 360px;
+}
+
+.form__container {
+  padding: 20px 30px 34px;
+}
+
+.auth__page-description,
+.form__description {
+  color: #5E5E5E;
+}
+
+.lock-icon-container {
+  bottom: 18px;
+  height: 20px;
+  position: absolute;
+  right: 30px;
+  width: 20px;
+}
+
+.form__button {
+  background: #105DD0;
+  height: 45px;
+  line-height: 30px;
+  margin-top: 35px;
+}
+
+.form__button-container .form__button {
+  margin-top: 0 !important;
+} 
+
+.form__button.second__button {
+  background: white;
+  color: #888888;
+  height: 45px;
+  line-height: 30px;
+}
+
+.active_day {
+  background: #105dd0d8;
+  color: #fff;
+}
+
+.table-summary-distribution {
+  max-height: 90vh;
+}
+
+.react-time-picker__wrapper {
+  height: 54px;
+  background: #F8F8F8;
+  border: 1px solid #DBD9D9 !important;
+  border-radius: 5px;
+}
+
+.user__form-active {
+  height: 54px;
+}
+
+.user__form-active-active {
+  background: #105DD0;
+}
+
+.user__form-active-inactive {
+  background: #DBDBDB;
+}
+
+.user__form-active-inactive .active__circle {
+  transform: translateX(2px);
+}
+
+.user__form-active-active .active__circle {
+  transform: translateX(15px);
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #105DD0!important;
+  font-weight: 700;
+  width: 100px;
+}
+
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: none!important;
+}
+
+.react-datepicker__input-container input {
+  background-color: #F9F9F9;
+  border-radius: 4px;
+  border: 0.4px solid #A1A1A1;
+  color: #2c2c2c;
+  cursor: default;
+  font-weight: 500;
+  height: 53px;
+  padding: 0 0.75rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .pagination-item {
+    display: block;
+  }
+
+  .home_text {
+    font-size: 54px;
+    line-height: 63px;
+  }
+
+  .pagination-item.hidden {
+    display: none;
+  }
+
+  .filter__button {
+    width: 243px;
+  }
+  
+  .primary__button {
+    background: #105DD0;
+    height: 60px;
+    line-height: 45px;
+    margin-top: 73px !important;
+  }
+
+  .primary__button.delete__button {
+    background: #E80000;
+  }
+
+  .form__button.second__button,
+  .second__button {
+    height: 60px;
+    line-height: 45px;
+  }
+
+  .form__description {
+    width: 296px !important;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  .partner-form {
+    width: 700px !important;
+    padding: 41px 60px 49px;
+  }
+
+  .form__container,
+  .go_back-container {
+    width: 80% !important;
+    max-width: 700px !important;
+  }
+
+  .form__container {
+    padding: 41px 60px 77px;
+  }
+
+  .form__container.delete__form {
+    padding: 45px 60px 50px;
+  }
+  
+}
+
+@media screen and (min-width: 1280px) {
+  .home__hero-image {
+    height: 400px;
+    width: 600px;
+  }
+
+  .home__cards-containers {
+    height: 340px;
+  }
+
+  .home__cards-containers > div {
+    width: 374px;
+  }
+
+  .home__hero-image {
+    height: 288.45px !important;
+    width: 380px !important;
+  }
+
+  .home_text {
+    width: 350px;
+  }
+
+  .grid__reports {
+    grid-template-columns: repeat(3, 374px);
+    height: calc((340px * 2) + 24px);
+  }
+
+  .main__container {
+    min-height: calc(100vh - 140px);
+  }
+
+}
+
+@media screen and (min-width: 1440px) {
+
+  .home_text {
+    width: 510px;
+    text-align: left;
+  }
+
+  .home__hero-image {
+    width: 606px !important;
+    height: 460px !important;
+  }
+
+}
