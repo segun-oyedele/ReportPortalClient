@@ -23,7 +23,7 @@ export const MultiSelect = ({ terminals, totalSelectedItems = 0, handleSelectedI
         <div className="absolute top-2/4 -translate-y-2/4 right-[15px]">
           <Image
             className={`${ active ? 'rotate-180' : '' } transition-transform duration-300 ease-in-out`}
-            src="/img/icons/chevron_down_icon.svg"
+            src={`${process.env.iisPath}/img/icons/chevron_down_icon.svg`}
             width={12}
             height={7}
             alt="chevron down icon"

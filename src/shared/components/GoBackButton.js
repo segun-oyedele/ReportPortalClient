@@ -12,7 +12,7 @@ export const GoBackButton = () => {
         className="self-start block"
       >
         <Image
-          src="/img/icons/go_back_icon.svg"
+          src={`${process.env.iisPath}/img/icons/go_back_icon.svg`}
           alt="Go back"
           width={50}
           height={50}

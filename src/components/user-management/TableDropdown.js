@@ -37,7 +37,7 @@ export const TableDropdown = ({handleEditUser, user}) => {
                     onClick={ () => handleEditUser(user) }
                   >
                     <Image
-                      src='/img/icons/edit_icon.svg'
+                      src={`${process.env.iisPath}/img/icons/edit_icon.svg`}
                       alt='edit'
                       width={18}
                       height={18}
@@ -59,7 +59,7 @@ export const TableDropdown = ({handleEditUser, user}) => {
                     } }
                   >
                     <Image
-                      src='/img/icons/trash_icon.svg'
+                      src={`${process.env.iisPath}/img/icons/trash_icon.svg`}
                       alt='delete'
                       width={24}
                       height={24}

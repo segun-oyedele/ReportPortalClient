@@ -36,7 +36,7 @@ export const FilterByStatusButton = () => {
             <span className="block h-full leading-8 table_text-black raleway-m">Filter by User type</span>
             <span className="absolute inset-y-0 flex items-center pointer-events-none right-8">
               <Image
-                src="/img/icons/chevron_down_icon.svg"
+                src={`${process.env.iisPath}/img/icons/chevron_down_icon.svg`}
                 alt="chevron-down"
                 width={12}
                 height={7}

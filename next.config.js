@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production'
-const prodPath = '/reportportal'
+const prodPath = isProd? '/reportportalclient': ""
 
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix: isProd ? prodPath : '/',
+  basePath: prodPath,
+  // assetPrefix: isProd ? prodPath : '/',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -15,6 +16,7 @@ const nextConfig = {
   env: {
     linksPath: isProd ? prodPath : '',
     jwtSecretKey: 'XwYYh4ihttaTbfBAL6Cq23YkABxpk',
+    iisPath: isProd ? prodPath : ''
   }
 }
 

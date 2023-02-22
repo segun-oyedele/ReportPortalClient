@@ -14,7 +14,7 @@ export const InputSelectField = ({ selected, labelText, handleUserTypeChange, op
             <span className="block h-full leading-10 table_text-black raleway-m opacity-60">{selected.portal_user_type_id}</span>
             <span className="absolute inset-y-0 flex items-center pointer-events-none right-8">
               <Image
-                src="/img/icons/chevron_down_icon.svg"
+                src={`${process.env.iisPath}/img/icons/chevron_down_icon.svg`}
                 alt="chevron-down"
                 width={12}
                 height={7}

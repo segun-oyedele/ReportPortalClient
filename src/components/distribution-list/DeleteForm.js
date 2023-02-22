@@ -18,7 +18,7 @@ export const DeleteForm = ({ handleClick }) => {
 
         <div className="flex justify-center mb-2">
           <Image
-            src="/img/icons/delete_group_icon.svg"
+            src={`${process.env.iisPath}/img/icons/delete_group_icon.svg}`}
             alt="Delete Icon"
             width={100}
             height={100}

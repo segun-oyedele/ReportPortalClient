@@ -12,7 +12,7 @@ export const HomeCardItem = ({ title, description, iconName, urlLink }) => {
             alt="Card icon"
             className="rounded-lg"
             height={80}
-            src={`/img/icons/${iconName}.svg`}
+            src={`${process.env.iisPath}/img/icons/${iconName}.svg`}
             title="Card icon"
             width={80}
           />

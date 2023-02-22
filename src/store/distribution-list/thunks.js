@@ -45,7 +45,7 @@ export const updateDistribution = createAsyncThunk('distributionList/updateDistr
     portal_data: { ...distributionData }
   }
 
-  const response = await useFetch('/distribution/update', body, 'POST');
+  const response = await useFetch('/distribution/update/', body, 'POST');
   const { data, success } = await response.json();
   
   if(success) {

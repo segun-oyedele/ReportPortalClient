@@ -152,7 +152,7 @@ export const getServerSideProps = async (ctx) => {
   if (!!userCookie) {
     store.dispatch(setAuthentication(true));
   }
-  await store.dispatch(getDetailedScannedButUndelivered48HourCountByAging());
+  // await store.dispatch(getDetailedScannedButUndelivered48HourCountByAging());
   await store.dispatch(getTerminals());
 
   return {

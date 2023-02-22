@@ -108,7 +108,7 @@ export const getTerminals = createAsyncThunk("detailedReport/getTerminals", asyn
 );
 export const getDCTerminals = createAsyncThunk("detailedReport/getDCTerminals", async (_, { dispatch }) => {
 
-  const response = await useFetchWithQuery("/dc-terminals");
+  const response = await useFetchWithQuery("/segments");
   const { data, success } = await response.json();
 
   if (success) {

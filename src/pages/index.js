@@ -16,7 +16,7 @@ export default function Home() {
           <div className="relative h-56 w-72 home__hero-image xl:w-auto xl:h-auto">
             <Image
               className="img-home"
-              src="/img/hero_img.svg"
+              src={`${process.env.iisPath}/img/hero_img.svg`}
               layout="fill"
               alt="Box image"
               title="Box image"

@@ -157,7 +157,7 @@ export const getServerSideProps = async (ctx) => {
   // }
   store.dispatch(setAuthentication(true));
 
-  await store.dispatch(getDriverReport());
+  // await store.dispatch(getDriverReport());
   await store.dispatch(getDCTerminals());
 
   return {

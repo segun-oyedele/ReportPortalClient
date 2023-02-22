@@ -11,7 +11,7 @@ export const Header = () => {
           className="w-16"
           width={106}
           height={50}
-          src='/img/last_mile_logo.png'
+          src={`${process.env.iisPath}/img/last_mile_logo.png`}
           title="Last-Mile-Logo"
         />
         <div className="hidden lg:block">

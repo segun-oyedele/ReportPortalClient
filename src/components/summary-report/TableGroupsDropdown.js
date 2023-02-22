@@ -59,7 +59,7 @@ export const TableGroupsDropdown = ({handleEditGroup, group}) => {
                     } }
                   >
                     <Image
-                      src='/img/icons/trash_icon.svg'
+                      src={`${process.env.iisPath}/img/icons/trash_icon.svg`}
                       alt='delete'
                       width={24}
                       height={24}
