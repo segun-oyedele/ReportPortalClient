@@ -50,10 +50,10 @@ const ScannedButUndelivered48hour = () => {
   const tableRef = useRef(null);
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getDetailedScannedButUndelivered48HourCountByAging());
-    dispatch(getTerminals());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getDetailedScannedButUndelivered48HourCountByAging());
+  //   dispatch(getTerminals());
+  // }, []);
 
   const { loadingTerminals } = useAppSelector((state) => state.detailedReport);
 

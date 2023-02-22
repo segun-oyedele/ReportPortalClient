@@ -49,10 +49,10 @@ const DriverReport = () => {
   const tableRef = useRef(null);
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getDriverReport());
-    dispatch(getDCTerminals());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getDriverReport());
+  //   dispatch(getDCTerminals());
+  // }, []);
 
   const { loadingTerminals } = useAppSelector((state) => state.detailedReport);
 
@@ -152,7 +152,7 @@ const DriverReport = () => {
 export const getServerSideProps = async (ctx) => {
   // const cookies = cookie.parse(ctx.req.headers.cookie || "");
   // const userCookie = cookies?.user_token;
-  // const store = getStore();
+  const store = getStore();
   // if (!!userCookie) {
   // }
   store.dispatch(setAuthentication(true));
