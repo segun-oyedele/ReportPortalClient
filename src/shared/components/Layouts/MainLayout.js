@@ -55,7 +55,7 @@ export const MainLayout = ({ children, title }) => {
 
       <Header />
 
-      <Navbar />
+      {isAuthenticated && <Navbar />}
 
       <main
         className='pt-4 pb-6 main__container'

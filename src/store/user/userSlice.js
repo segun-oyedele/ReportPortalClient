@@ -9,7 +9,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setAuthentication: (state, action) => {
-      state.isAuthenticated = true
+      state.isAuthenticated = action.payload
     },
     clearUser: (state) => {
       state.isAuthenticated = false

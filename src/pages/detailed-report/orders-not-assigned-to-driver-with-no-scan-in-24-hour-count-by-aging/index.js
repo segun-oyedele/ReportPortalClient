@@ -150,18 +150,18 @@ const OrdersNotAssigendToDriverWithNoScanIn24HourCountByAging = () => {
 }
 
 export const getServerSideProps = async (ctx) => {
-  // const cookies = cookie.parse(ctx.req.headers.cookie || "");
-  // const userCookie = cookies?.user_token;
+  const cookies = cookie.parse(ctx.req.headers.cookie || "")
+  const userCookie = cookies?.user_token
   const store = getStore()
-  // if (!!userCookie) {
-  // store.dispatch(setAuthentication(true));
+  if (userCookie) {
+    store.dispatch(setAuthentication(true))
+    store.dispatch(setAuthentication(true))
+  }
 
-  // }
-
-  store.dispatch(setAuthentication(true))
-
-  // await store.dispatch(getDetailedOrderNotAssignedToDriversWithNoScan24CountByAging());
-  // await store.dispatch(getTerminals());
+  await store.dispatch(
+    getDetailedOrderNotAssignedToDriversWithNoScan24CountByAging()
+  )
+  await store.dispatch(getTerminals())
 
   return {
     props: {

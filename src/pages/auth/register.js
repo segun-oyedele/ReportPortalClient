@@ -54,7 +54,8 @@ const RegisterPage = () => {
 
     const formData = new FormData(formRef.current)
     console.log("formdata", formValues)
-    // const { payload } = await dispatch(register(formData ))
+    const { payload } = await dispatch(register(formData))
+    console.log("payload", payload)
     // const { success, auth_token } = payload
 
     // if (success) {
