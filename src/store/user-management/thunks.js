@@ -31,7 +31,7 @@ export const getUsersById = createAsyncThunk('usersManagement/getUserById', asyn
 
 export const getUsersType = createAsyncThunk('usersManagement/userType', async () => {
 
-  const response = await useFetchWithQuery('/user-type');
+  const response = await useFetchWithQuery('/user-type/');
   const { data } = await response.json();
   return data;
 
@@ -45,7 +45,7 @@ export const addUserType = createAsyncThunk('usersManagement/addUserType', async
     user_type: "Test User"
   }
 
-  const response = await useFetch('/user-type/add', body, 'POST');
+  const response = await useFetch('/user-type/add/', body, 'POST');
   const { data } = await response.json();
   return data;
 });
@@ -62,7 +62,7 @@ export const updateUserType = createAsyncThunk('usersManagement/updateUserType',
     }
   }
 
-  const response = await useFetch('/user-type/update', body, 'POST');
+  const response = await useFetch('/user-type/update/', body, 'POST');
   const { data } = await response.json();
   return data;
 });

@@ -19,7 +19,7 @@ export const login = createAsyncThunk("user/login", async (body) => {
 /* REGISTER */
 
 export const register = createAsyncThunk("user/register", async (body) => {
-  const response = await useFetchAuth("/register", body, "POST")
+  const response = await useFetchAuth("/register/", body, "POST")
   const { success, data } = await response.json()
   if (success) {
     return {
@@ -34,7 +34,7 @@ export const register = createAsyncThunk("user/register", async (body) => {
 export const logout = createAsyncThunk(
   "user/logout",
   async (_, { dispatch }) => {
-    const response = await useFetchWithQuery("/logout")
+    const response = await useFetchWithQuery("/logout/")
     const { data } = await response.json()
     if (data.success) {
       return true

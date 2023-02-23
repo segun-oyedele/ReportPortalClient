@@ -11,11 +11,11 @@ import {
 export const getSummaryReportlist = createAsyncThunk(
   "summaryReport/getSummaryReportlist",
   async (_, { dispatch }) => {
-    const responseDistribution = await useFetchWithQuery("/distribution");
+    const responseDistribution = await useFetchWithQuery("/distribution/");
     const { data } = await responseDistribution.json();
     dispatch(setDistributions(data));
 
-    const response = await useFetchWithQuery("/report");
+    const response = await useFetchWithQuery("/report/");
     const body = await response.json();
 
     dispatch(setSummaryReport(body.data));
@@ -27,7 +27,7 @@ export const getSummaryReportlist = createAsyncThunk(
 export const getSummaryReportType = createAsyncThunk(
   "summaryReport/getSummaryReportType",
   async (_, { dispatch }) => {
-    const response = await useFetchWithQuery("/report-type");
+    const response = await useFetchWithQuery("/report-type/");
     const body = await response.json();
     if (body.success) {
       dispatch(addReportType(body.data));
@@ -43,7 +43,7 @@ export const getSummaryReportType = createAsyncThunk(
 export const addSummaryReportType = createAsyncThunk(
   "summaryReport/addSummaryReportType",
   async (data, { dispatch }) => {
-    const response = await useFetch("/report-type/add", data, "POST");
+    const response = await useFetch("/report-type/add/", data, "POST");
     const body = await response.json();
 
     if (body.success) {
@@ -60,7 +60,7 @@ export const addSummaryReportType = createAsyncThunk(
 export const addSummaryReport = createAsyncThunk(
   "summaryReport/addSummaryReport",
   async (data, { dispatch }) => {
-    const response = await useFetch("/report/add", data, "POST");
+    const response = await useFetch("/report/add/", data, "POST");
     const body = await response.json();
 
     if (body.success) {
@@ -98,7 +98,7 @@ export const updateSummaryReport = createAsyncThunk(
       },
     };
 
-    const response = await useFetch("/report/update", body, "POST");
+    const response = await useFetch("/report/update/", body, "POST");
     const { data, success } = await response.json();
 
     if (success) {
