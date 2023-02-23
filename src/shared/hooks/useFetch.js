@@ -12,7 +12,6 @@ export const useFetchWithQuery = (endpoint, method = "GET") => {
 
 export const usePatchWithQuery = (endpoint, method = "PATCH") => {
   const url = `${BASE_URL}${endpoint}`
-  console.log("url", url)
   return fetch(url, {
     method,
     // headers: {

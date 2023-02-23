@@ -7,7 +7,6 @@ import { setActive } from "@/store/ui"
 
 export const MainLayout = ({ children, title }) => {
   const { isAuthenticated } = useAppSelector((state) => state.user)
-  console.log("is auth", isAuthenticated)
   const { active } = useAppSelector((state) => state.ui)
   const dispatch = useAppDispatch()
 
@@ -27,27 +26,27 @@ export const MainLayout = ({ children, title }) => {
         <link
           rel='apple-touch-icon'
           sizes='152x152'
-          href={`${process.env.linksPath}/apple-touch-icon.png`}
+          href={`${process.env.iisPath}/apple-touch-icon.png`}
         />
         <link
           rel='icon'
           type='image/png'
           sizes='32x32'
-          href={`${process.env.linksPath}/favicon-32x32.png`}
+          href={`${process.env.iisPath}/favicon-32x32.png`}
         />
         <link
           rel='icon'
           type='image/png'
           sizes='16x16'
-          href={`${process.env.linksPath}/favicon-16x16.png`}
+          href={`${process.env.iisPath}/favicon-16x16.png`}
         />
         <link
           rel='manifest'
-          href={`${process.env.linksPath}/site.webmanifest`}
+          href={`${process.env.iisPath}/site.webmanifest`}
         />
         <link
           rel='mask-icon'
-          href={`${process.env.linksPath}/safari-pinned-tab.svg`}
+          href={`${process.env.iisPath}/safari-pinned-tab.svg`}
           color='#5bbad5'
         />
         <meta name='msapplication-TileColor' content='#da532c' />

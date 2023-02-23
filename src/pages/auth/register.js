@@ -60,7 +60,7 @@ const RegisterPage = () => {
 
     if (success) {
       Cookies.set("user_token", auth_token)
-      router.push(`${process.env.linksPath}/`)
+      router.push(`/`)
     }
   }
 

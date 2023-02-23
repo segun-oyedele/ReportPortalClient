@@ -37,7 +37,7 @@ export const TableGroupsDropdown = ({handleEditGroup, group}) => {
                     onClick={ () => handleEditGroup(group) }
                   >
                     <Image
-                      src='/img/icons/edit_icon.svg'
+                      src={`${process.env.iisPath}/img/icons/edit_icon.svg`}
                       alt='edit'
                       width={18}
                       height={18}

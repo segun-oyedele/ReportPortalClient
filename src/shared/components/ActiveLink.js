@@ -15,7 +15,6 @@ export const ActiveLink = ({ index, label, href, stylesClass, navPath }) => {
   const handleClick = (event) => {
     event.preventDefault()
     setIsActive(true)
-    // console.log("href", href)
     push(href)
   }
 

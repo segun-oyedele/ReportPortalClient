@@ -13,11 +13,9 @@ export const AuthLinks = ({ isMobile }) => {
 
   const handleLogout = async () => {
     const { payload } = await dispatch(logout())
-    console.log('hello world')
-
     if (payload) {
       Cookies.remove("user_token")
-      router.push(`${process.env.linksPath}/auth/login`)
+      router.push(`/auth/login`)
     }
   }
 
@@ -40,7 +38,7 @@ export const AuthLinks = ({ isMobile }) => {
         </button>
       ) : (
         <>
-          <Link href={`${process.env.linksPath}/auth/login`}>
+          <Link href={`/auth/login`}>
             <a
               className={`inline-block h-10 px-2 leading-10 transition-opacity raleway-eb login__button hover:opacity-60 ${
                 isMobile ? "" : "text-white"
@@ -49,7 +47,7 @@ export const AuthLinks = ({ isMobile }) => {
               Log In
             </a>
           </Link>
-          <Link href={`${process.env.linksPath}/auth/register`}>
+          <Link href={`/auth/register`}>
             <a
               className={`inline-block text-lg text-center transition-opacity rounded-lg raleway-eb signup__button hover:opacity-60 ${
                 isMobile ? "" : "bg-white ml-10"

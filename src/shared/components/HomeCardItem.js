@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export const HomeCardItem = ({ title, description, iconName, urlLink }) => {
   
   return (
-    <Link href={`${process.env.linksPath}/detailed-report/${urlLink}`}>
+    <Link href={`/detailed-report/${urlLink}`}>
       <a className="flex flex-col justify-between w-full max-w-md gap-8 px-8 py-4 transition-all duration-300 rounded-2xl home_card-report hover:shadow-md hover:-translate-y-1">
         <div className="h-20">
           <Image

@@ -11,7 +11,6 @@ import { clearUser } from "./userSlice"
 export const login = createAsyncThunk("user/login", async (body) => {
   const response = await useFetchAuth("/login", body)
   const { data } = await response.json()
-  console.log("loging data", data)
   if (data.success) {
     return {
       success: true,
