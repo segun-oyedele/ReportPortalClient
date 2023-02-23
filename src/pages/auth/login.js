@@ -48,11 +48,11 @@ const LoginPage = () => {
 
       if (success) {
         Cookies.set("user_token", auth_token)
+        router.push(`${process.env.linksPath}/`)
       }
     } catch (error) {
       alertPopup("Something went wrong. Please try again.", "error", 2000)
     }
-    router.push(`${process.env.linksPath}/`)
   }
 
   return (

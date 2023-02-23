@@ -7,6 +7,7 @@ import { setActive } from "@/store/ui"
 
 export const MainLayout = ({ children, title }) => {
   const { isAuthenticated } = useAppSelector((state) => state.user)
+  console.log("is auth", isAuthenticated)
   const { active } = useAppSelector((state) => state.ui)
   const dispatch = useAppDispatch()
 

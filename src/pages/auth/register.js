@@ -56,12 +56,12 @@ const RegisterPage = () => {
     console.log("formdata", formValues)
     const { payload } = await dispatch(register(formData))
     console.log("payload", payload)
-    // const { success, auth_token } = payload
+    const { success, auth_token } = payload
 
-    // if (success) {
-    //   Cookies.set("user_token", auth_token)
-    //   router.push(`${process.env.linksPath}/`)
-    // }
+    if (success) {
+      Cookies.set("user_token", auth_token)
+      router.push(`${process.env.linksPath}/`)
+    }
   }
 
   return (

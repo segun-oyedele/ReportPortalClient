@@ -1,5 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { useFetchAuth, useFetchWithQuery } from "@/shared/hooks"
+import {
+  useFetchAuth,
+  useFetchWithQuery,
+  usePatchWithQuery,
+} from "@/shared/hooks"
 import { clearUser } from "./userSlice"
 
 /* LOGIN */
@@ -34,7 +38,7 @@ export const register = createAsyncThunk("user/register", async (body) => {
 export const logout = createAsyncThunk(
   "user/logout",
   async (_, { dispatch }) => {
-    const response = await useFetchWithQuery("/logout")
+    const response = await usePatchWithQuery("/logout/")
     const { data } = await response.json()
     if (data.success) {
       return true
