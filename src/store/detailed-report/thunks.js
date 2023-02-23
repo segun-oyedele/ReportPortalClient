@@ -15,7 +15,7 @@ export const getDetailedScannedButUndelivered48HourCountByAging = createAsyncThu
 
   dispatch(setLoadingTerminals(true));
 
-  const response = await useFetch("/detailed/scanned-but-undelivered-48h-count-by-aging", body, "POST");
+  const response = await useFetch("/detailed/open-no-scan-48/", body, "POST");
   const { data, success } = await response.json();
 
   if (success) {
@@ -33,7 +33,7 @@ export const getDetailedOrderNotAssignedToDriversWithNoScan24CountByAging = crea
 
   dispatch(setLoadingTerminals(true));
 
-  const response = await useFetch("/detailed/orders-not-assigned-to-drivers-with-no-scan-24-count-by-aging", body, "POST");
+  const response = await useFetch("/detailed/assigned-to-driver-no-scan-24/", body, "POST");
   const { data, success } = await response.json();
 
   if (success) {
@@ -56,7 +56,7 @@ export const getDetailedDriversOrContractorsWithOpenOrdersSummaryCount = createA
 
   dispatch(setLoadingTerminals(true));
 
-  const response = await useFetch("/detailed/drivers-contractor-with-open-orders-summary-count", body, "POST");
+  const response = await useFetch("/detailed/open-order-count-by-driver/", body, "POST");
   const { data, success } = await response.json();
 
   if (success) {
@@ -79,7 +79,7 @@ export const getDriverReport = createAsyncThunk("detailedReport/getDriverReport"
 
   dispatch(setLoadingTerminals(true));
 
-  const response = await useFetch("/detailed/get-driver-report", body, "POST");
+  const response = await useFetch("/detailed/driver-completion/", body, "POST");
 
   const { data, success } = await response.json();
 
@@ -95,7 +95,7 @@ export const getDriverReport = createAsyncThunk("detailedReport/getDriverReport"
 
 export const getTerminals = createAsyncThunk("detailedReport/getTerminals", async (_, { dispatch }) => {
 
-  const response = await useFetchWithQuery("/terminals");
+  const response = await useFetchWithQuery("/terminals/");
   const { data, success } = await response.json();
 
   if (success) {
@@ -108,7 +108,7 @@ export const getTerminals = createAsyncThunk("detailedReport/getTerminals", asyn
 );
 export const getDCTerminals = createAsyncThunk("detailedReport/getDCTerminals", async (_, { dispatch }) => {
 
-  const response = await useFetchWithQuery("/segments");
+  const response = await useFetchWithQuery("/segments/");
   const { data, success } = await response.json();
 
   if (success) {

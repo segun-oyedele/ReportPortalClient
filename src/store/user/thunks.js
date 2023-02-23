@@ -23,7 +23,7 @@ export const login = createAsyncThunk("user/login", async (body) => {
 /* REGISTER */
 
 export const register = createAsyncThunk("user/register", async (body) => {
-  const response = await useFetchAuth("/register", body, "POST")
+  const response = await useFetchAuth("/register/", body, "POST")
   const { success, data } = await response.json()
   if (success) {
     return {

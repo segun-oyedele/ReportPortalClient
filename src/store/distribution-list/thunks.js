@@ -6,7 +6,7 @@ import { setDistributionList } from './distributionSlice';
 
 export const getDistributionList = createAsyncThunk('distributionList/getDistributionList', async (_, { dispatch }) => {
 
-  const response = await useFetchWithQuery('/distribution');
+  const response = await useFetchWithQuery('/distribution/');
   const body = await response.json();
 
   if(body.success) {
@@ -26,7 +26,7 @@ export const addDistribution = createAsyncThunk('distributionList/addDistributio
     portal_data: { ...distributionData, active: 1 }
   }
 
-  const response = await useFetch('/distribution/add', body, 'POST');
+  const response = await useFetch('/distribution/add/', body, 'POST');
   const { data, success } = await response.json();
 
   if(success) {
