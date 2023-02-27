@@ -106,6 +106,7 @@ export const getTerminals = createAsyncThunk("detailedReport/getTerminals", asyn
   }
 }
 );
+
 export const getDCTerminals = createAsyncThunk("detailedReport/getDCTerminals", async (_, { dispatch }) => {
 
   const response = await useFetchWithQuery("/segments/");
@@ -118,4 +119,4 @@ export const getDCTerminals = createAsyncThunk("detailedReport/getDCTerminals", 
     return false;
   }
 }
-);
+); 

@@ -19,10 +19,10 @@ import {
   Table,
 } from "@/components/detailed-report/scanned-but-undelivered-48-hour/components";
 import { useFilter } from "@/components/detailed-report";
-
+ 
 import {
   getDetailedScannedButUndelivered48HourCountByAging,
-  getTerminals,
+  getDCTerminals,
 } from "@/store/detailed-report/thunks";
 import { setAuthentication } from "@/store/user";
 import getStore from "@/store/store";
@@ -52,10 +52,11 @@ const ScannedButUndelivered48hour = () => {
   const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(getDetailedScannedButUndelivered48HourCountByAging());
-  //   dispatch(getTerminals());
+  //   dispatch(getDCTerminals());
   // }, []);
 
   const { loadingTerminals } = useAppSelector((state) => state.detailedReport);
+  console.log(currentItems)
 
   return (
     <MainLayout title="Detailed Report | Driver">
@@ -84,12 +85,14 @@ const ScannedButUndelivered48hour = () => {
               terminals={selectedTerminals}
               totalSelectedItems={totalSelectedItems}
               handleSelectedItems={handleSelectedItems}
+              title='Filter By DC Segments'
+              dcSegment={true}
             />
           </div>
 
           <div className="flex flex-col w-full gap-6 lg:w-40">
             <ButtonComponent
-              btnLabel="Filter"
+              btnLabel="Run"
               labelStyles="text-lg raleway-b"
               btnColors="primary-blue hover:opacity-90 transition duration-300 ease-in-out"
               btnStyles="rounded-lg w-auto justify-center lg:w-40"
@@ -117,6 +120,7 @@ const ScannedButUndelivered48hour = () => {
         {loadingTerminals ? (
           <LoadingComponent />
         ) : (
+          currentItems.length > 0 &&
           <>
             <Table
               theadTrGridStyles="grid grid-cols-[repeat(2,_1fr)] sm:grid-cols-[repeat(3,_1fr)] justify-evenly gap-5 items-center h-16"
@@ -153,7 +157,7 @@ export const getServerSideProps = async (ctx) => {
     store.dispatch(setAuthentication(true));
   }
   // await store.dispatch(getDetailedScannedButUndelivered48HourCountByAging());
-  await store.dispatch(getTerminals());
+  await store.dispatch(getDCTerminals());
 
   return {
     props: {

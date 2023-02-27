@@ -21,7 +21,7 @@ import {
 } from "@/shared/components"
 import {
   getDetailedOrderNotAssignedToDriversWithNoScan24CountByAging,
-  getTerminals,
+  getDCTerminals,
 } from "@/store/detailed-report/thunks"
 import getStore from "@/store/store"
 import { setAuthentication } from "@/store/user"
@@ -51,8 +51,8 @@ const OrdersNotAssigendToDriverWithNoScanIn24HourCountByAging = () => {
   const dispatch = useDispatch()
   // useEffect(() => {
   //   dispatch(getDetailedOrderNotAssignedToDriversWithNoScan24CountByAging());
-  //   dispatch(getTerminals());
-  // }, []);
+  //   dispatch(getDCTerminals());
+  // }, []); 
 
   const { loadingTerminals } = useAppSelector((state) => state.detailedReport)
 
@@ -62,7 +62,7 @@ const OrdersNotAssigendToDriverWithNoScanIn24HourCountByAging = () => {
 
       <section className='relative flex flex-col items-center justify-between gap-6 px-5 mb-10 lg:flex-row md:px-0 md:mb-10 filter_bar'>
         <PageTitle
-          title='Orders Not Assigend To Driver With No Scan in 24 Hour Count By Aging'
+          title='Unscanned & Unassigned'
           stylesClass='text-xl raleway-b'
         />
 
@@ -83,12 +83,14 @@ const OrdersNotAssigendToDriverWithNoScanIn24HourCountByAging = () => {
               terminals={selectedTerminals}
               totalSelectedItems={totalSelectedItems}
               handleSelectedItems={handleSelectedItems}
+              title='Filter By DC Segment'
+              dcSegment={true}
             />
           </div>
 
           <div className='flex flex-col w-full gap-6 lg:w-40'>
             <ButtonComponent
-              btnLabel='Filter'
+              btnLabel='Run'
               labelStyles='text-lg raleway-b'
               btnColors='primary-blue hover:opacity-90 transition duration-300 ease-in-out'
               btnStyles='rounded-lg w-auto justify-center lg:w-40'
@@ -116,6 +118,7 @@ const OrdersNotAssigendToDriverWithNoScanIn24HourCountByAging = () => {
         {loadingTerminals ? (
           <LoadingComponent />
         ) : (
+          currentItems.length > 0 &&
           <>
             <Table
               theadTrGridStyles='grid grid-cols-[repeat(2,_1fr)] sm:grid-cols-[repeat(3,_1fr)] justify-evenly gap-5 items-center h-16'
@@ -153,15 +156,14 @@ export const getServerSideProps = async (ctx) => {
   const cookies = cookie.parse(ctx.req.headers.cookie || "")
   const userCookie = cookies?.user_token
   const store = getStore()
-  if (userCookie) {
-    store.dispatch(setAuthentication(true))
+  if (!!userCookie) {
     store.dispatch(setAuthentication(true))
   }
 
-  await store.dispatch(
-    getDetailedOrderNotAssignedToDriversWithNoScan24CountByAging()
-  )
-  await store.dispatch(getTerminals())
+  // await store.dispatch(
+  //   getDetailedOrderNotAssignedToDriversWithNoScan24CountByAging()
+  // )
+  await store.dispatch(getDCTerminals())
 
   return {
     props: {

@@ -16,10 +16,10 @@ import {
   LoadingComponent,
   MultiSelect,
   SearchBar,
-  CalendarComponent,
+  CalendarComponent, 
 } from "@/shared/components"
 import { theadDriverReports } from "@/components/detailed-report/data"
-import { getDriverReport, getDCTerminals } from "@/store/detailed-report/thunks"
+import { getDriverReport, getTerminals } from "@/store/detailed-report/thunks"
 import { useFilter } from "@/components/detailed-report"
 import getStore from "@/store/store"
 import { setAuthentication } from "@/store/user"
@@ -51,7 +51,7 @@ const DriverReport = () => {
   const dispatch = useDispatch()
   // useEffect(() => {
   //   dispatch(getDriverReport());
-  //   dispatch(getDCTerminals());
+  //   dispatch(getTerminals());
   // }, []);
 
   const { loadingTerminals } = useAppSelector((state) => state.detailedReport)
@@ -61,7 +61,7 @@ const DriverReport = () => {
       <GoBackButton />
 
       <section className='relative flex flex-col items-center justify-between gap-6 px-5 mb-10 lg:flex-row md:px-0 md:mb-10 filter_bar'>
-        <PageTitle title='Driver Report' stylesClass='text-xl raleway-b' />
+        <PageTitle title='Driver Completion Detailed Report' stylesClass='text-xl raleway-b' />
         <div className='flex flex-col w-full gap-6 lg:w-auto lg:flex-row lg:justify-evenly detailed__report-searchbar'>
           <div className='grid grid-rows-2 gap-6'>
             <SearchBar
@@ -79,7 +79,7 @@ const DriverReport = () => {
               terminals={selectedTerminals}
               totalSelectedItems={totalSelectedItems}
               handleSelectedItems={handleSelectedItems}
-              title='Filter by Driver DC'
+              title='Filter by Terminal'
             />
 
             <FilterByDriverType
@@ -90,7 +90,7 @@ const DriverReport = () => {
 
           <div className='flex flex-col w-full gap-6 lg:w-40'>
             <ButtonComponent
-              btnLabel='Filter'
+              btnLabel='Run'
               labelStyles='text-lg raleway-b'
               btnColors='primary-blue hover:opacity-90 transition duration-300 ease-in-out'
               btnStyles='rounded-lg w-auto justify-center lg:w-40'
@@ -118,6 +118,7 @@ const DriverReport = () => {
         {loadingTerminals ? (
           <LoadingComponent />
         ) : (
+          currentItems.length > 0 &&
           <>
             <Table
               theadTrGridStyles='grid grid-cols-[repeat(2,_1fr)] sm:grid-cols-[repeat(4,_1fr)] md:grid-cols-[repeat(4,_1fr)] lg:grid-cols-[repeat(6,_1fr)] justify-evenly gap-5 items-center h-16'
@@ -157,8 +158,8 @@ export const getServerSideProps = async (ctx) => {
     store.dispatch(setAuthentication(true))
   }
 
-  await store.dispatch(getDriverReport());
-  await store.dispatch(getDCTerminals())
+  // await store.dispatch(getDriverReport());
+  await store.dispatch(getTerminals())
 
   return {
     props: {

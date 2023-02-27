@@ -17,7 +17,7 @@ export const useFilter = () => {
   const { activeReport, itemsPerPage, currentPage, terminals } = useAppSelector(
     (state) => state.detailedReport
   );
-
+ 
   const [searchText, setSearchText] = useState("");
 
   const [dateValue, setDateValue] = useState(initialDate);
@@ -42,10 +42,19 @@ export const useFilter = () => {
     setSelectedTerminals(terminals);
   }, [terminals]);
 
-  const handleSelectedItems = (terminal_id) => {
+  const handleSelectedItems = (terminal_id, dcSegment) => {
     setSelectedTerminals((terminals) => {
       const newTerminals = terminals.map((terminal) => {
-        if (terminal.terminal_id === terminal_id) {
+        if (!dcSegment && terminal.terminal_id === terminal_id) {
+          setTotalSelectedItems((totalSelectedItems) => {
+            if (terminal.selected) {
+              return totalSelectedItems - 1;
+            } else {
+              return totalSelectedItems + 1;
+            }
+          });
+          return { ...terminal, selected: !terminal.selected };
+        } else if (dcSegment && terminal.dc_segment_id === terminal_id){
           setTotalSelectedItems((totalSelectedItems) => {
             if (terminal.selected) {
               return totalSelectedItems - 1;
@@ -78,7 +87,7 @@ export const useFilter = () => {
     const aging_threshold = moment(dateValue).format("YYYY-MM-DD");
     const dc_segment_filtered = selectedTerminals
       ?.filter((terminal) => terminal.selected)
-      .map((terminal) => terminal.terminal_id);
+      .map((terminal) => terminal.dc_segment_id);
     const dc_segment =
       dc_segment_filtered?.length > 0 ? dc_segment_filtered : null;
     const account_number =

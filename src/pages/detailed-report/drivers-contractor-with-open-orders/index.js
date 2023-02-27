@@ -8,7 +8,7 @@ import {
 } from "@/components/detailed-report/drivers-contractor-with-open-orders/components"
 import {
   getDetailedDriversOrContractorsWithOpenOrdersSummaryCount,
-  getDCTerminals,
+  getTerminals,
 } from "@/store/detailed-report/thunks"
 import { theadDriversContractorWithOpenOrders } from "@/components/detailed-report/data"
 import {
@@ -48,8 +48,8 @@ const DriversContractorWithOpenOrders = () => {
   const dispatch = useDispatch()
   // useEffect(() => {
   //   dispatch(getDetailedDriversOrContractorsWithOpenOrdersSummaryCount());
-  //   dispatch(getDCTerminals());
-  // }, []);
+  //   dispatch(getTerminals());
+  // }, []); 
 
   const { loadingTerminals } = useAppSelector((state) => state.detailedReport)
 
@@ -59,7 +59,7 @@ const DriversContractorWithOpenOrders = () => {
 
       <section className='relative flex flex-col items-center justify-between gap-6 px-5 mb-10 lg:flex-row md:px-0 md:mb-10 filter_bar'>
         <PageTitle
-          title='Drivers Contractor With Open Orders'
+          title='Driver/Contractors with Open Orders'
           stylesClass='text-xl raleway-b'
         />
 
@@ -78,13 +78,13 @@ const DriversContractorWithOpenOrders = () => {
               terminals={selectedTerminals}
               totalSelectedItems={totalSelectedItems}
               handleSelectedItems={handleSelectedItems}
-              title='Filter by Driver DC'
+              title='Filter by Terminal'
             />
           </div>
 
           <div className='flex flex-col w-full gap-6 lg:w-40'>
             <ButtonComponent
-              btnLabel='Filter'
+              btnLabel='Run'
               labelStyles='text-lg raleway-b'
               btnColors='primary-blue hover:opacity-90 transition duration-300 ease-in-out'
               btnStyles='rounded-lg w-auto justify-center lg:w-40'
@@ -112,6 +112,7 @@ const DriversContractorWithOpenOrders = () => {
         {loadingTerminals ? (
           <LoadingComponent />
         ) : (
+          currentItems.length > 0 &&
           <>
             <Table
               theadTrGridStyles='grid grid-cols-[repeat(3,_1fr)] justify-evenly gap-5 items-center h-16'
@@ -147,14 +148,14 @@ export const getServerSideProps = async (ctx) => {
   const cookies = cookie.parse(ctx.req.headers.cookie || "")
   const userCookie = cookies?.user_token
   const store = getStore()
-  if (!!userCookie) {
+  if (userCookie) {
     store.dispatch(setAuthentication(true))
   }
-
-  await store.dispatch(
-    getDetailedDriversOrContractorsWithOpenOrdersSummaryCount()
-  )
-  await store.dispatch(getDCTerminals())
+ 
+  // await store.dispatch(
+  //   getDetailedDriversOrContractorsWithOpenOrdersSummaryCount()
+  // )
+  await store.dispatch(getTerminals())
 
   return {
     props: {

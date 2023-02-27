@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setActive } from '@/store/ui';
 
-export const MultiSelect = ({ terminals, totalSelectedItems = 0, handleSelectedItems, title = 'Filter by DC Segment' }) => {
+export const MultiSelect = ({ terminals, totalSelectedItems = 0, handleSelectedItems, title = 'Filter by DC Segment', dcSegment=false }) => {
 
   const { active } = useAppSelector(state => state.ui);
   const dispatch = useAppDispatch();
@@ -31,14 +31,24 @@ export const MultiSelect = ({ terminals, totalSelectedItems = 0, handleSelectedI
         </div>
       </div>
       <div className={`${ active ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0' } z-10 absolute bg-[#F9F9F9] w-full h-96 top-[56px] border-[0.4px] border-[#A1A1A1] transition-all duration-300 ease-in-out overflow-y-scroll select_option`}>
-        { terminals?.map(({ terminal_name, terminal_id, selected }, index) => (
+        { dcSegment ? (terminals?.map(({ terminal_name, terminal_id, dc_segment_id, selected }, index) => (
           <span
-            key={terminal_id}
-            onClick={ () => handleSelectedItems(terminal_id) }
+            key={dc_segment_id}
+            onClick={ () => handleSelectedItems(dc_segment_id, dcSegment) }
             className={`${ selected ? 'bg-blue-400 text-white font-bold' : index % 2 === 0 ? 'bg-slate-200' : 'bg-[#F9F9F9]' } truncate px-1 select-none w-full h-10 inline-block text-center leading-10 select_option`}
             title={terminal_name}
           >{ terminal_name }</span>
-        ))}
+        ))) : 
+        (terminals?.map(({ terminal_name, terminal_id, selected }, index) => (
+          <span
+            key={terminal_id}
+            onClick={ () => handleSelectedItems(terminal_id, dcSegment) }
+            className={`${ selected ? 'bg-blue-400 text-white font-bold' : index % 2 === 0 ? 'bg-slate-200' : 'bg-[#F9F9F9]' } truncate px-1 select-none w-full h-10 inline-block text-center leading-10 select_option`}
+            title={terminal_name}
+          >{ terminal_name }</span>
+        )))
+        
+        }
       </div>
     </div>
   );

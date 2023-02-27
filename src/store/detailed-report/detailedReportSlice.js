@@ -40,8 +40,8 @@ export const detailedReportSlice = createSlice({
           selected: false
         }
       })
-    }
+    },
   },
 })
 export const { setActiveReport, setCurrentItemsPerPage, setLoadingTerminals, setCurrentItemsPage, setTerminals } = detailedReportSlice.actions
-export default detailedReportSlice.reducer
+export default detailedReportSlice.reducer 
